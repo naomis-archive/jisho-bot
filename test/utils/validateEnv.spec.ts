@@ -15,7 +15,7 @@ suite("validateEnv utility", () => {
   });
 
   test("throws an error when missing DEBUG_HOOK", () => {
-    process.env.HOME_GUILD = "123";
+    process.env.HOME_GUILD_ID = "123";
     assert.throws(validateEnv, "Missing DEBUG_HOOK environment variable");
   });
 
