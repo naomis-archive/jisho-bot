@@ -3,10 +3,10 @@ import { JishoResult } from "unofficial-jisho-api";
 const createJapaneseSet = (japanese: JishoResult["japanese"]): string => {
   const set = new Set<string>();
   for (const j of japanese) {
-    if (j.word) {
+    if (j.word && !set.has(j.word)) {
       set.add(j.word);
     }
-    if (j.reading) {
+    if (j.reading && !set.has(j.reading)) {
       set.add(j.reading);
     }
   }
@@ -26,12 +26,14 @@ export const parseWordData = (data: JishoResult[]): string => {
     data
       .map(
         (datum) =>
-          `${datum.senses.map(
-            (sense) =>
-              `_${sense.parts_of_speech.join(
-                ", "
-              )}_\n${sense.english_definitions.join(", ")}`
-          )}`
+          `${datum.senses
+            .map(
+              (sense) =>
+                `_${sense.parts_of_speech.join(
+                  ", "
+                )}_\n${sense.english_definitions.join(", ")}`
+            )
+            .join("\n")}`
       )
       .join("\n")
   );

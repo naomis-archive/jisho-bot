@@ -27,7 +27,7 @@ export const word: Command = {
       }
       const embed = new EmbedBuilder();
       embed.setTitle(query);
-      embed.setDescription(parseWordData(result.data.slice(0, 5)));
+      embed.setDescription(parseWordData(result.data.slice(0, 3)));
       embed.setFooter({
         text: "Powered by Jisho.org",
       });
