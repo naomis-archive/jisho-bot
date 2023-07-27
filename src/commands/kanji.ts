@@ -22,6 +22,7 @@ export const kanji: Command = {
         await interaction.editReply({
           content: "No results found!",
         });
+        return;
       }
       const embed = new EmbedBuilder();
       embed.setTitle(query);

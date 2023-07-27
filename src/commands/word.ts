@@ -22,6 +22,7 @@ export const word: Command = {
         await interaction.editReply({
           content: "No results found!",
         });
+        return;
       }
       const data = result.data[0];
       const embed = new EmbedBuilder();
