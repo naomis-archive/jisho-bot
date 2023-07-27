@@ -16,11 +16,14 @@ export const registerCommands = async (bot: ExtendedClient) => {
     }
     const rest = new REST({ version: "10" }).setToken(bot.env.token);
     const commands = bot.commands.map((command) => command.data.toJSON());
-
-    await rest.put(
-      Routes.applicationGuildCommands(bot.user.id, bot.env.homeGuild),
-      { body: commands }
-    );
+    process.env.NODE_ENV === "production"
+      ? await rest.put(Routes.applicationCommands(bot.user.id), {
+          body: commands,
+        })
+      : await rest.put(
+          Routes.applicationGuildCommands(bot.user.id, bot.env.homeGuild),
+          { body: commands }
+        );
   } catch (err) {
     await errorHandler(bot, "register commands utility", err);
   }
