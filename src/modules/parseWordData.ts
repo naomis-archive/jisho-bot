@@ -10,7 +10,7 @@ const createJapaneseSet = (japanese: JishoResult["japanese"]): string => {
       set.add(j.reading);
     }
   }
-  return [...set].join("\n");
+  return [...set].join(" | ");
 };
 
 /**
@@ -20,21 +20,17 @@ const createJapaneseSet = (japanese: JishoResult["japanese"]): string => {
  * @returns {string} A formatted string.
  */
 export const parseWordData = (data: JishoResult[]): string => {
-  return (
-    data.map((datum) => createJapaneseSet(datum.japanese)).join("\n") +
-    "\n" +
-    data
-      .map(
-        (datum) =>
-          `${datum.senses
-            .map(
-              (sense) =>
-                `_${sense.parts_of_speech.join(
-                  ", "
-                )}_\n${sense.english_definitions.join(", ")}`
-            )
-            .join("\n")}`
-      )
-      .join("\n")
-  );
+  return data
+    .map(
+      (datum) =>
+        `**${createJapaneseSet(datum.japanese)}**\n${datum.senses
+          .map(
+            (sense) =>
+              `__${sense.parts_of_speech.join(
+                ", "
+              )}__\n${sense.english_definitions.join(", ")}`
+          )
+          .join("\n\n")}`
+    )
+    .join("\n\n");
 };
