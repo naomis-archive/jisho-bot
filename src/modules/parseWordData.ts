@@ -10,7 +10,7 @@ const createJapaneseSet = (japanese: JishoResult["japanese"]): string => {
       set.add(j.reading);
     }
   }
-  return [...set].join(" | ");
+  return [...set].map((w) => `**${w}**`).join(" | ");
 };
 
 /**
@@ -23,7 +23,7 @@ export const parseWordData = (data: JishoResult[]): string => {
   return data
     .map(
       (datum) =>
-        `**${createJapaneseSet(datum.japanese)}**\n${datum.senses
+        `${createJapaneseSet(datum.japanese)}\n${datum.senses
           .map(
             (sense) =>
               `__${sense.parts_of_speech.join(

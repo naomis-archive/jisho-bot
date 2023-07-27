@@ -37,7 +37,7 @@ export const MockSingleWordSearch: [JishoResult] = [
   },
 ];
 
-export const ExpectedSingleWordSearch = `**お願いします | おねがいします | 御願いします**
+export const ExpectedSingleWordSearch = `**お願いします** | **おねがいします** | **御願いします**
 __Expressions (phrases, clauses, etc.)__
 please`;
 
@@ -179,18 +179,18 @@ export const MockWordSearch: [JishoResult, JishoResult, JishoResult] = [
   },
 ];
 
-export const ExpectedWordSearch = `**お願いします | おねがいします | 御願いします**
+export const ExpectedWordSearch = `**お願いします** | **おねがいします** | **御願いします**
 __Expressions (phrases, clauses, etc.)__
 please
 
-**何卒 | なにとぞ | 何とぞ | なにそつ**
+**何卒** | **なにとぞ** | **何とぞ** | **なにそつ**
 __Adverb (fukushi)__
 please, kindly, I beg of you, if it pleases you
 
 __Adverb (fukushi)__
 by all means, without fail
 
-**下さい | ください**
+**下さい** | **ください**
 __Expressions (phrases, clauses, etc.)__
 please (give me)
 
