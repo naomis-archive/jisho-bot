@@ -1,6 +1,6 @@
 {
   "name": "jisho-bot",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "This is a Discord bot that exposes Jisho.org so you can run queries directly in your server.",
   "main": "prod/index.js",
   "scripts": {
