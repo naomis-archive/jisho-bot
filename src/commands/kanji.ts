@@ -18,7 +18,7 @@ export const kanji: Command = {
     try {
       const query = interaction.options.getString("query", true);
       const result = await bot.api.searchForKanji(query);
-      if (!result) {
+      if (!result.found) {
         await interaction.editReply({
           content: "No results found!",
         });
