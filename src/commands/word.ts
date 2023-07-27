@@ -1,6 +1,7 @@
 import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
 
 import { Command } from "../interfaces/Command";
+import { parseWordData } from "../modules/parseWordData";
 import { errorHandler } from "../utils/errorHandler";
 
 export const word: Command = {
@@ -18,22 +19,15 @@ export const word: Command = {
     try {
       const query = interaction.options.getString("query", true);
       const result = await bot.api.searchForPhrase(query);
-      if (!result) {
+      if (!result || !result.data.length) {
         await interaction.editReply({
           content: "No results found!",
         });
         return;
       }
-      const data = result.data[0];
       const embed = new EmbedBuilder();
       embed.setTitle(query);
-      embed.setDescription(data.senses[0].english_definitions.join(", "));
-      embed.addFields([
-        {
-          name: "Japanese",
-          value: data.japanese[0].word || data.japanese[0].reading,
-        },
-      ]);
+      embed.setDescription(parseWordData(result.data.slice(0, 5)));
       embed.setFooter({
         text: "Powered by Jisho.org",
       });
