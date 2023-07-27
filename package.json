@@ -31,7 +31,9 @@
   },
   "homepage": "https://github.com/https://github.com/nhcarrigan/jisho-bot#readme",
   "dependencies": {
+    "discord.js": "14.11.0",
     "dotenv": "16.3.1",
+    "unofficial-jisho-api": "2.3.2",
     "winston": "3.10.0"
   },
   "devDependencies": {
