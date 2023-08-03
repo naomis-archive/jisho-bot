@@ -6,7 +6,7 @@ import { errorHandler } from "../utils/errorHandler";
 export const kanji: Command = {
   data: new SlashCommandBuilder()
     .setName("kanji")
-    .setDescription("Get information on a specific kanji character.")
+    .setDescription("Get information on a single specific kanji character.")
     .addStringOption((option) =>
       option
         .setName("query")
