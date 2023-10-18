@@ -12,8 +12,8 @@ dependencies:
     specifier: 16.3.1
     version: 16.3.1
   unofficial-jisho-api:
-    specifier: 2.3.2
-    version: 2.3.2
+    specifier: 2.3.3
+    version: 2.3.3
   winston:
     specifier: 3.11.0
     version: 3.11.0
@@ -2440,8 +2440,8 @@ packages:
       busboy: 1.6.0
     dev: false
 
-  /unofficial-jisho-api@2.3.2:
-    resolution: {integrity: sha512-CslI+LGVPlG7Rd8xUbCS+GIx5ND6DK4xu86Su/Ix8sYBKHwcK+BldAkVsB7jeCxw0oLPNrIbet7pocn4jDTwCA==}
+  /unofficial-jisho-api@2.3.3:
+    resolution: {integrity: sha512-DsgZ7gXAJRkzSDy47O5FDohDkP5bCpJkoDASSovzFKzxR7RPSDfM/KUA8Tqt+068tyOaE9YHyPrOU58CoNOPFg==}
     dependencies:
       axios: 0.21.4
       cheerio: 1.0.0-rc.12
