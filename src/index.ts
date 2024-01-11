@@ -4,7 +4,6 @@ import JishoAPI from "unofficial-jisho-api";
 import { IntentOptions } from "./config/IntentOptions";
 import { ExtendedClient } from "./interfaces/ExtendedClient";
 import { loadCommands } from "./utils/loadCommands";
-import { logHandler } from "./utils/logHandler";
 import { registerCommands } from "./utils/registerCommands";
 import { validateEnv } from "./utils/validateEnv";
 
@@ -30,7 +29,13 @@ import { validateEnv } from "./utils/validateEnv";
 
   bot.on(Events.ClientReady, async () => {
     await registerCommands(bot);
-    logHandler.info("Client ready!");
+    await bot.env.debugHook.send({
+      content: "Bot authenticated!",
+      username: bot.user?.username ?? "Jisho Bot",
+      avatarURL:
+        bot.user?.displayAvatarURL() ??
+        "https://cdn.nhcarrigan.com/avatars/nhcarrigan.png",
+    });
   });
 
   await bot.login(bot.env.token);
